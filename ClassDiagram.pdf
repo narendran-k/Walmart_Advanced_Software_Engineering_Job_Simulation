@@ -1,0 +1,78 @@
+UML Class Diagram Components
+Datapoint Class
+Represents both raw and processed data points.
+ModeIdentifier Enum
+Defines the operating modes: DUMP, PASSTHROUGH, VALIDATE.
+DatabaseIdentifier Enum
+Defines the database types: POSTGRES, REDIS, ELASTIC.
+DataProcessor Class
+Attributes:
+mode: ModeIdentifier
+database: DatabaseIdentifier
+Methods:
+configure(mode: ModeIdentifier, database: DatabaseIdentifier): void
+process(data: Datapoint): void
+connect(): void
+insert(data: Datapoint): void
+validate(data: Datapoint): void
+Database Interfaces
+Each database type (Postgres, Redis, Elastic) will have methods for connect(), insert(Datapoint), and validate(Datapoint).
+
++---------------------+
+|     Datapoint       |
++---------------------+
+|                     |
++---------------------+
+
++---------------------+
+|   ModeIdentifier    |
++---------------------+
+| - DUMP              |
+| - PASSTHROUGH       |
+| - VALIDATE          |
++---------------------+
+
++---------------------+
+|  DatabaseIdentifier  |
++---------------------+
+| - POSTGRES          |
+| - REDIS             |
+| - ELASTIC           |
++---------------------+
+
++---------------------+
+|    DataProcessor    |
++---------------------+
+| - mode: ModeIdentifier       |
+| - database: DatabaseIdentifier |
++---------------------+
+| + configure(mode: ModeIdentifier, database: DatabaseIdentifier): void |
+| + process(data: Datapoint): void   |
+| + connect(): void                    |
+| + insert(data: Datapoint): void      |
+| + validate(data: Datapoint): void    |
++---------------------+
+
++---------------------+
+|    Postgres         |
++---------------------+
+| + connect(): void   |
+| + insert(data: Datapoint): void |
+| + validate(data: Datapoint): void |
++---------------------+
+
++---------------------+
+|    Redis            |
++---------------------+
+| + connect(): void   |
+| + insert(data: Datapoint): void |
+| + validate(data: Datapoint): void |
++---------------------+
+
++---------------------+
+|    Elastic          |
++---------------------+
+| + connect(): void   |
+| + insert(data: Datapoint): void |
+| + validate(data: Datapoint): void |
++---------------------+
