@@ -1,0 +1,89 @@
++---------------------+
+|     Product         |
++---------------------+
+| ProductID (PK)     |
+| ProductType        |
+| Name               |
+| ManufacturerID (FK)|
+| Weight             |
+| Flavor             |
+| TargetHealthCondition|
+| Material           |
+| Durability         |
+| Color              |
+| Size               |
+| CareInstructions   |
++---------------------+
+
++---------------------+
+|   Manufacturer      |
++---------------------+
+| ManufacturerID (PK)|
+| Name               |
+| ContactInfo        |
++---------------------+
+
++---------------------+
+|      Animal         |
++---------------------+
+| AnimalID (PK)      |
+| Species            |
+| Breed              |
+| Size               |
++---------------------+
+
++---------------------+
+|   ProductAnimal     |
++---------------------+
+| ProductID (FK)     |
+| AnimalID (FK)      |
++---------------------+
+
++---------------------+
+|     Customer        |
++---------------------+
+| CustomerID (PK)    |
+| Name               |
+| Email              |
++---------------------+
+
++---------------------+
+|    Transaction      |
++---------------------+
+| TransactionID (PK) |
+| CustomerID (FK)    |
+| Date               |
++---------------------+
+
++---------------------+
+| TransactionProduct   |
++---------------------+
+| TransactionID (FK)  |
+| ProductID (FK)      |
+| Quantity            |
++---------------------+
+
++---------------------+
+|      Shipment       |
++---------------------+
+| ShipmentID (PK)    |
+| Origin              |
+| Destination         |
+| ShipmentDate        |
++---------------------+
+
++---------------------+
+|  ShipmentProduct    |
++---------------------+
+| ShipmentID (FK)    |
+| ProductID (FK)     |
+| Quantity           |
++---------------------+
+
++---------------------+
+|      Location       |
++---------------------+
+| LocationID (PK)    |
+| Name                |
+| ZipCode             |
++---------------------+
